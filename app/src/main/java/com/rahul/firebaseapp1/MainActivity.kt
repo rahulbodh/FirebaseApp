@@ -12,11 +12,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
+import com.google.firebase.database.getValue
 import com.rahul.firebaseapp1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var database : DatabaseReference
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var database: DatabaseReference
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -48,8 +49,21 @@ class MainActivity : AppCompatActivity() {
 
 
         // write the custom object to the firebase db
-        val user = User("Rahul bodh" , "123456")
+        val user = User("Rahul bodh", "123456")
         database.child("user").setValue(user)
 
+        // read the custom object
+        val userEventListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue<User>()
+                binding.userNameValue.text = " ${user}"
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        }
+        database.child("user").addValueEventListener(userEventListener)
     }
 }
