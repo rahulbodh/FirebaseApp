@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253566287137",
+    "project_id": "fir-app1-ef6b7",
+    "storage_bucket": "fir-app1-ef6b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253566287137:android:73e04ded17d4149e4b1260",
+        "android_client_info": {
+          "package_name": "com.rahul.firebaseapp1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEX1jK0yLB6EB96ppWvAWB1UQPxxUhHYk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
