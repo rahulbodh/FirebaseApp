@@ -62,5 +62,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-database")
 
+    implementation("com.google.firebase:firebase-firestore") // cloud firestore
+
 
 }

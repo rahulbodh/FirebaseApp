@@ -13,10 +13,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import com.google.firebase.database.getValue
+import com.google.firebase.firestore.firestore
 import com.rahul.firebaseapp1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
+    val db = Firebase.firestore
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,5 +67,27 @@ class MainActivity : AppCompatActivity() {
 
         }
         database.child("user").addValueEventListener(userEventListener)
+
+
+        // write the collections to the firestore
+
+        val user_collections = db.collection("users")
+
+        val user1  = hashMapOf(
+            "first" to "Rahul",
+            "last"  to "bodh",
+            "born" to "23-06-2003",
+        )
+
+        val user2 = hashMapOf(
+            "first" to "Aashi",
+            "last" to "Saini",
+            "born" to "23-10-2003",
+            )
+
+        user_collections.document("user1").set(user1)
+        user_collections.document("user2").set(user2)
+
+
     }
 }
