@@ -46,5 +46,10 @@ class MainActivity : AppCompatActivity() {
         }
         database.child("userName").addValueEventListener(postEventListener)
 
+
+        // write the custom object to the firebase db
+        val user = User("Rahul bodh" , "123456")
+        database.child("user").setValue(user)
+
     }
 }
