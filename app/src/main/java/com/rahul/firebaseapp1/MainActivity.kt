@@ -98,5 +98,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // getting all documents from the collection
+        var  documentsData : String = ""
+        db.collection("users").get().addOnSuccessListener { results ->
+            for (document in results){
+//                binding.userNameValue.text = "${document.data}"
+                documentsData += "${document.data}\n"
+            }
+
+            binding.userNameValue.text = documentsData
+
+        }
+
     }
 }
