@@ -89,5 +89,14 @@ class MainActivity : AppCompatActivity() {
         user_collections.document("user2").set(user2)
 
 
+        // read the collections from the firestore
+        val docRef = db.collection("users").document("user1")
+
+        docRef.get().addOnSuccessListener{ document ->
+            if(document != null){
+                binding.userNameValue.text = "${document.data?.get("first")}"
+            }
+        }
+
     }
 }
