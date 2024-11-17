@@ -110,5 +110,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        // update the data in the firestore
+        db.collection("users")
+            .document("user1")
+            .update("last", "saini")
+
+        // using .delete() method
+//        db.collection("users")
+//            .document("user1")
+//            .delete()
+
     }
 }
